@@ -1,6 +1,7 @@
 streamlit
-tensorflow==2.11
+tensorflow==2.13.0
 Pillow
 numpy
 plotly
 matplotlib
+opencv-python
