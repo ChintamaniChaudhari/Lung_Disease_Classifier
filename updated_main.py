@@ -37,7 +37,7 @@ def show_output_chart(predictions, class_names):
     st.plotly_chart(fig, use_container_width=True)
 
 
-set_background("D:\PBL2\BackGround.jpg")
+set_background("BackGround.jpg")
 
 with st.container():
     st.markdown("<div class='block-container'>", unsafe_allow_html=True)
@@ -52,10 +52,10 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier
-model = load_model("D:\lung_disease_mobilenetv2.h5")
+model = load_model("lung_disease_mobilenetv2.h5")
                    
 # load class names
-with open("D:\PBL2\converted_keras\labels.txt", 'r') as f:
+with open("labels.txt", 'r') as f:
     class_names = [a[:-1].split(' ')[1] for a in f.readlines()]
     f.close()
 
