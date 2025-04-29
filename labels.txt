@@ -1,0 +1,4 @@
+0 Corona_Virus_Disease
+1 Normal
+2 Pneumonia
+3 Tuberculosis
