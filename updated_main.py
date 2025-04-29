@@ -5,6 +5,7 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import matplotlib.pyplot as plt
+from tensorflow.keras.layers import DepthwiseConv2D
 
 from updated_util import classify, set_background
 
@@ -50,6 +51,15 @@ st.header('Please upload a chest X-ray image')
 
 # upload file
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
+
+# Patch to remove 'groups' argument for compatibility
+original_init = DepthwiseConv2D.__init__
+
+def patched_init(self, *args, **kwargs):
+    kwargs.pop('groups', None)  # Ignore 'groups' if present
+    original_init(self, *args, **kwargs)
+
+DepthwiseConv2D.__init__ = patched_init
 
 # load classifier
 model = load_model("lung_disease_mobilenetv2.h5")
