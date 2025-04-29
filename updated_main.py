@@ -54,9 +54,9 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier
-#model = load_model("lung_disease_mobilenetv2.h5")
+model = load_model("lung_disease_mobilenetv2.h5")
 # Example: if you used hub.KerasLayer
-model = load_model("lung_disease_mobilenetv2.h5", custom_objects={'KerasLayer': hub.KerasLayer})
+#model = load_model("lung_disease_mobilenetv2.h5", custom_objects={'KerasLayer': hub.KerasLayer})
 
                    
 # load class names
