@@ -5,6 +5,8 @@ import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 import matplotlib.pyplot as plt
+import keras
+import tensorflow_hub as hub
 
 from updated_util import classify, set_background
 
@@ -52,7 +54,10 @@ st.header('Please upload a chest X-ray image')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 # load classifier
-model = load_model("lung_disease_mobilenetv2.h5")
+#model = load_model("lung_disease_mobilenetv2.h5")
+# Example: if you used hub.KerasLayer
+model = load_model("lung_disease_mobilenetv2.h5", custom_objects={'KerasLayer': hub.KerasLayer})
+
                    
 # load class names
 with open("labels.txt", 'r') as f:
