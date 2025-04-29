@@ -72,7 +72,7 @@ with open("labels.txt", 'r') as f:
 # display image
 if file is not None:
     image = Image.open(file).convert('RGB')
-    st.image(image, use_column_width=True)
+    st.image(image, use_container_width=True)
 
     # classify image
     class_name, conf_score, all_preds = classify(image, model, class_names)
