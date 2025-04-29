@@ -1,5 +1,5 @@
 streamlit
-tensorflow==2.11
+tensorflow
 Pillow
 numpy
 plotly
